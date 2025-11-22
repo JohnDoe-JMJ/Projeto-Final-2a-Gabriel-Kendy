@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View, Platform, ImageBackground } from 'react-native';
-import foto from "../assets/foto.jpg";
+import foto from "../../assets/foto.jpg";
 import { SafeAreaView } from 'react-native-safe-area-context';
-import background from "../assets/background.jpg"
+import background from "../../assets/background.jpg"
 
 export default function App() {
   return (

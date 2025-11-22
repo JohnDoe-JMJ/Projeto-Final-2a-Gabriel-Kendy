@@ -19,9 +19,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
+    fontFamily: 'AlmendraSC_400Regular',
   },
   subtitle: {
     fontSize: 18,
     color: '#888',
+    fontFamily:  'FasterOne_400Regular',
   },
 });

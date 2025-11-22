@@ -1,32 +1,33 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
-import { useEffect } from 'react';
-import { Platform } from 'react-native';
+import { Slot, slot, SplashScreen } from "expo-router";
+import {useFonts, AlmendraSC_400Regular} from "@expo-google-fonts/almendra-sc"
+import {FasterOne_400Regular} from "@expo-google-fonts/faster-one"
+import { Text, View } from "react-native";
+import { useEffect } from "react";
 
-export default function TabLayout() {
+SplashScreen.preventAutoHideAsync();
 
-  useEffect(()=>{
-    Platform.OS === "web" ? document.title = "DDM 2025/2" : null
-  },[])
+export default function RootLayout () {
 
-  return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Início',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-          headerShown: false,
-        }}
-      />
-      <Tabs.Screen
-        name="aboutme"
-        options={{
-          title: 'Sobre',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
-          headerShown: false,
-        }}
-      />
-    </Tabs>
-  );
+    const [fontsLoaded, fontError] = useFonts({
+        AlmendraSC_400Regular: AlmendraSC_400Regular,
+        FasterOne_400Regular: FasterOne_400Regular,
+    });
+
+    useEffect(()=>{
+        if(fontsLoaded || fontError) {
+            SplashScreen.hideAsync();
+        }
+    }, [
+        fontsLoaded, fontError
+    ]) 
+
+    if (!fontsLoaded) {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Loading Fonts...</Text>
+            </View>
+        )
+    }
+
+    return <Slot />;
 }

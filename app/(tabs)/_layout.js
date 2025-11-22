@@ -1,0 +1,40 @@
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Tabs } from 'expo-router';
+import { useEffect } from 'react';
+import { Platform } from 'react-native';
+
+export default function TabLayout() {
+
+  useEffect(()=>{
+    Platform.OS === "web" ? document.title = "DDM 2025/2" : null
+  },[])
+
+  return (
+    <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Início',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="temalivre"
+        options={{
+          title: 'Livre',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="free-code-camp" color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="aboutme"
+        options={{
+          title: 'Sobre',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          headerShown: false,
+        }}
+      />
+    </Tabs>
+  );
+}
