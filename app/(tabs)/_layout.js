@@ -1,4 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { Tabs } from 'expo-router';
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
@@ -20,18 +21,26 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="sobremim"
+        options={{
+          title: 'Sobre Mim',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
         name="temalivre"
         options={{
-          title: 'Livre',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="free-code-camp" color={color} />,
+          title: 'Eletrônicos',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="desktop" color={color} />,
           headerShown: false,
         }}
       />
       <Tabs.Screen
         name="aboutme"
         options={{
-          title: 'Sobre',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          title: 'de Tabuleiro',
+          tabBarIcon: ({ color }) => <AntDesign size={28} name="layout" color={color} />,
           headerShown: false,
         }}
       />

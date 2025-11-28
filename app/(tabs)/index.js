@@ -1,29 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function App() {
+export default function Index() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Página Inicial</Text>
-      <Text style={styles.subtitle}>Bem-Vindo ao aplicativo!</Text>
-      <StatusBar style="auto" />
-    </View>
-  ) }
+    <SafeAreaView style={styles.safe}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Bem Vindo ao Aplicativo</Text>
+      </View>
+    </SafeAreaView>
+  );
+}
 
 const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+    backgroundColor: '#081426', // fundo profissional
+  },
   container: {
     flex: 1,
-    backgroundColor: '#faececff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',   // centraliza verticalmente
+    alignItems: 'center',        // centraliza horizontalmente
+    padding: 20,
   },
   title: {
-    fontSize: 36,
-    fontFamily: 'AlmendraSC_400Regular',
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#888',
-    fontFamily:  'FasterOne_400Regular',
+    color: '#e6f0fb',
+    fontSize: 24,
+    fontWeight: '700',
+    textAlign: 'center',
   },
 });
